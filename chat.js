@@ -42,7 +42,6 @@ function addMessage(user, color, badges, message) {
   const avatar = `<img src="https://decapi.me/twitch/avatar/${user}" class="avatar">`;
   bubble.innerHTML = `${avatar}<span class="badges">${badges.map(getBadgeHTML).join("")}</span><span class="username" style="color: ${color}">${user}:</span> <span class="text">${message}</span>`;
 
-
   chatContainer.appendChild(bubble);
 
   setTimeout(() => {
@@ -72,7 +71,7 @@ function getBadgeHTML(type) {
     broadcaster: "📣",
     premium: "💰"
   };
-  return `<span class="badge" title="\${type}">\${emojis[type] || "🎖️"}</span>`;
+  return `<span class="badge" title="${type}">${emojis[type] || "🎖️"}</span>`;
 }
 
 function parseEmotes(message, emoteTag) {
@@ -94,7 +93,7 @@ function parseEmotes(message, emoteTag) {
     if (emoteMap[i]) {
       const { end, id } = emoteMap[i];
       const emoteCode = message.slice(i, end + 1);
-      parts.push(`<img src="https://static-cdn.jtvnw.net/emoticons/v2/\${id}/default/dark/1.0" alt="\${emoteCode}" class="emote">`);
+      parts.push(`<img src="https://static-cdn.jtvnw.net/emoticons/v2/${id}/default/dark/1.0" alt="${emoteCode}" class="emote">`);
       i = end + 1;
     } else {
       parts.push(sanitize(message[i]));
