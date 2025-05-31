@@ -40,7 +40,8 @@ function addMessage(user, color, badges, message) {
   bubble.className = "message";
 
   const avatar = `<img src="https://decapi.me/twitch/avatar/${user}" class="avatar">`;
-  bubble.innerHTML = \`\${avatar}<span class="badges">\${badges.map(getBadgeHTML).join("")}</span><span class="username" style="color: \${color}">\${user}:</span> <span class="text">\${message}</span>\`;
+  bubble.innerHTML = `${avatar}<span class="badges">${badges.map(getBadgeHTML).join("")}</span><span class="username" style="color: ${color}">${user}:</span> <span class="text">${message}</span>`;
+
 
   chatContainer.appendChild(bubble);
 
